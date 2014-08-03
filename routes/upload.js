@@ -18,14 +18,19 @@ var handleFile = function(filename, file, targetDir) {
     });
 };
 
+var isDefined = function(str) {
+    return (typeof str != 'undefined' && null != str && '' != str);
+}
 
 // Parse form and handle files and fields.
 var handleForm = function(req, res) {
     var result = { files: [], fields: [] };
 
     req.busboy.on('file', function (fieldname, file, filename) {
-        result.files.push({ name: filename});
-        handleFile(filename, file, os.tmpdir());
+        if(isDefined(filename)) {
+	   result.files.push({ name: filename});
+	   handleFile(filename, file, os.tmpdir());
+	}
     });
     req.busboy.on('field', function(key, value, keyTruncated, valueTruncated) {
         console.log('Field received: '+key+' = '+value);
