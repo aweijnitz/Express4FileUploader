@@ -2,8 +2,8 @@
 A basic example of how to use Express 4 routes and Connect-Busboy to handle multiple file uploads.
 
 ## Installation
-Download/clone this repo
-Run `npm install`
+- Download/clone this repo
+- Run `npm install`
  
 ## Running
 Run using `npm start` and browse to [http://localhost:8080](http://localhost:8080)
